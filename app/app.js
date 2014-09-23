@@ -14,6 +14,7 @@ app.controller('todoCtrl', ['$scope', function($scope){
     };
     
     $scope.edit = function(i){
+        $scope.todos[i].done = false;
         delete $scope.todos[i].edit;
     };
 }]);
