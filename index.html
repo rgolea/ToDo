@@ -1,0 +1,57 @@
+<!doctype html>
+<html class="no-js" lang="en" ng-app="app">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <title>ToDo | Angular.js</title>
+    <link rel="stylesheet" href="css/foundation.css" />
+    <link rel="stylesheet" href="css/foundation-icons.css">
+    <script src="js/vendor/modernizr.js"></script>
+    <script src="js/angular.min.js"></script>
+    <style>
+        .done{
+            color: grey;
+            text-decoration:line-through;
+        }  
+    </style>
+  </head>
+  <body>
+    <div class="row" ng-controller="todoCtrl">
+            <div class="medium-centered medium-6 columns">
+                   <div class="row">
+                      <h4>My ToDo App</h4>
+                       <hr>
+                   </div>
+                     <div class="row" ng-repeat="todo in todos">
+                      <div class="small-2 columns">
+                         <div class="switch small radius">
+                             <input id="check.{{$index}}" type="checkbox" ng-model="todo.done">
+                             <label for="check.{{$index}}"></label>
+                         </div>
+                      </div>
+                      <div class="small-8 columns" ng-class="{done:todo.done}">
+                          <p ng-Dblclick="todo.edit=true" ng-hide="todo.edit">{{todo.description | uppercase}}</p>
+                          <input ng-show="todo.edit" type="text" ng-model="todo.description" ng-keypress="($event.which === 13)? edit($index) : 0">
+                      </div>
+                      <div class="small-2 columns">
+                          <i class="fi-x" style="cursor:pointer;" ng-click="delete($index)"></i>
+                      </div>
+                      <hr>
+                      </div>
+                      <div class="row">
+                          <input type="hidden" ng-model="newToDo.done">
+                          <input type="text" ng-model="newToDo.description" placeholder="ADD TODO" ng-keypress="($event.which === 13)? add() :0">
+                      </div>
+            </div>
+    </div>
+    
+    
+    
+    <script src="app/app.js"></script>
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
+  </body>
+</html>
