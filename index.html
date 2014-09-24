@@ -44,8 +44,10 @@
                       <hr>
                       </div>
                       <div class="row">
+                         <form action="">
                           <input type="hidden" ng-model="newToDo.done">
-                          <input type="text" ng-model="newToDo.description" placeholder="ADD TODO" ng-keypress="($event.which === 13)? add() :0">
+                          <input type="text" ng-model="newToDo.description" placeholder="ADD TODO" required ng-keypress="($event.which === 13)? add() :0">
+                          </form>
                       </div>
             </div>
     </div>

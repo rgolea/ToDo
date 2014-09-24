@@ -5,8 +5,10 @@ app.controller('todoCtrl', ['$scope', function($scope){
     $scope.todos = [];
     
     $scope.add = function(){
+        if($scope.newToDo){
         $scope.todos.push($scope.newToDo);
         $scope.newToDo = null;
+        }
     };
     
     $scope.delete = function(i){
