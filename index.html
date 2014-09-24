@@ -12,7 +12,11 @@
         .done{
             color: grey;
             text-decoration:line-through;
-        }  
+        }
+        
+        .editable{
+            cursor: text;
+        }
     </style>
   </head>
   <body>
@@ -31,7 +35,7 @@
                          </div>
                       </div>
                       <div class="small-8 columns">
-                          <p ng-Dblclick="todo.edit=true" ng-class="{done:todo.done}" ng-hide="todo.edit">{{todo.description | uppercase}}</p>
+                          <p ng-Dblclick="(!todo.done) ? todo.edit=true:0" ng-class="{done:todo.done, editable:!todo.done}" ng-hide="todo.edit">{{todo.description | uppercase}}</p>
                           <input ng-show="todo.edit" type="text" ng-model="todo.description" ng-keypress="($event.which === 13)? edit($index) : 0">
                       </div>
                       <div class="small-2 columns">

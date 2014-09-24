@@ -2,7 +2,9 @@ var app = angular.module('app', []);
 
 app.controller('todoCtrl', ['$scope', function($scope){
 
-    $scope.todos = [];
+    $scope.todos = [
+        {description:'hello world', done:true}
+    ];
     
     $scope.add = function(){
         $scope.todos.push($scope.newToDo);
