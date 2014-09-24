@@ -27,7 +27,7 @@
                       <h4>My ToDo App</h4>
                        <hr>
                    </div>
-                     <div class="row" ng-repeat="todo in todos">
+                     <div class="row" ng-repeat="todo in todos | orderBy:'description'">
                       <div class="small-2 columns">
                          <div class="switch small radius">
                              <input id="check.{{$index}}" type="checkbox" ng-model="todo.done">
